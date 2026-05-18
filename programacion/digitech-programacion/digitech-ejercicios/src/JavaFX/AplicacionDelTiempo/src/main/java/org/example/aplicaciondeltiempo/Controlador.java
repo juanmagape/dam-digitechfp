@@ -21,6 +21,11 @@ public class Controlador {
     private Label datosCiudad;
 
     @FXML
+    public void initialize() {
+        actualizarFondoSegunCodigo(-1);
+    }
+
+    @FXML
     public void BuscarTiempo() {
         String ciudad = textoCiudad.getText().trim();
 
@@ -52,11 +57,13 @@ public class Controlador {
         } catch (Exception e) {
             buscandoCiudad.setText("");
             errorCiudad.setText("No  se pudo obtener el tiempo");
+            actualizarFondoSegunCodigo(-1);
         }
     }
 
     public void actualizarFondoSegunCodigo(int codigoClima) {
         String urlImagen = "";
+        String colorFondo = "";
 
         switch (codigoClima) {
             case 0:
@@ -90,19 +97,24 @@ public class Controlador {
 
             case 95:
             case 96: case 99:
-                urlImagen = " url('https://i.pinimg.com/originals/59/01/7c/59017c20bbb5fff48a6f7f496cebdf6e.gif')";
+                urlImagen = "url('https://i.pinimg.com/originals/59/01/7c/59017c20bbb5fff48a6f7f496cebdf6e.gif')";
                 break;
 
             default:
-                urlImagen = "url('https://arche-ele.com/wp-content/uploads/2020/10/portada-clima.png')";
+                colorFondo = "linear-gradient(to bottom right, yellow, red, blue)";
                 break;
         }
 
-        container.setStyle(
-                "-fx-background-image: " + urlImagen + ";" +
-                        "-fx-background-repeat: repeat;" +
-                        "-fx-background-size: 400px;" +
-                        "-fx-background-position: center center;"
-        );
+        if (!colorFondo.isEmpty()) {
+            container.setStyle("-fx-background-color: " + colorFondo + ";");
+        } else {
+            container.setStyle(
+                    "-fx-background-color: transparent;" +
+                            "-fx-background-image: " + urlImagen + ";" +
+                            "-fx-background-repeat: repeat;" +
+                            "-fx-background-size: 200px;" +
+                            "-fx-background-position: center center;"
+            );
+        }
     }
 }
