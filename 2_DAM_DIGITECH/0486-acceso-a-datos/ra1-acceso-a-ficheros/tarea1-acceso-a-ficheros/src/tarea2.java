@@ -17,16 +17,6 @@ public class tarea2 {
         File archivo1 = new File(miDirectorio, "fichero_de_texto.txt");
         File archivo2 = new File(nuevoDirectorio, "fichero_de_texto2.txt");
 
-        String[] provincias = {
-                "Almería",
-                "Cádiz",
-                "Córdoba",
-                "Granada",
-                "Huelva",
-                "Jaén",
-                "Málaga",
-                "Sevilla"
-        };
 
         int opcion = 0;
 
