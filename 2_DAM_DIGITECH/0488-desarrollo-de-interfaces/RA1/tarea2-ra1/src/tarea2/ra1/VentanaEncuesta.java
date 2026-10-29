@@ -151,20 +151,20 @@ public class VentanaEncuesta extends javax.swing.JFrame {
 
     private void btnMostrarResumenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarResumenActionPerformed
         // TODO add your handling code here:
-        
-        String nombre = txtNombre.getText().trim();
-        if (nombre.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Por favor, introduce un nombre.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
-            return;
-        }
+    // Coger el nombre    
+    String nombre = txtNombre.getText().trim();
+    if (nombre.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Por favor, introduce un nombre.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+        return;
+    }
 
-    // 2. Obtener edad
+    // coger la edad
     int edad = (Integer) spnEdad.getValue();
 
-    // 3. Obtener tipo de usuario
+    // coger el tipo de usuario
     String tipoUsuario = cbTipoUsuario.getSelectedItem().toString();
 
-    // 4. Obtener nivel seleccionado
+    // coger el nivel
     String nivel = "";
     if (rbPrincipiante.isSelected()) {
         nivel = "Principiante";
@@ -174,7 +174,7 @@ public class VentanaEncuesta extends javax.swing.JFrame {
         nivel = "Avanzado";
     }
 
-    // 5. Construir y mostrar el resumen
+    // hacer el resumen y mostrarlo por pantalla
     String resumen = "--- Resumen de la Encuesta ---\n"
                    + "Nombre: " + nombre + "\n"
                    + "Edad: " + edad + "\n"
